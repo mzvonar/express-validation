@@ -1,4 +1,4 @@
-var Joi = require('joi');
+var Joi = require('@hapi/joi');
 
 var generateUsername = function (context) {
   return context.firstname.toLowerCase() + '-' + context.lastname.toLowerCase();
@@ -6,14 +6,14 @@ var generateUsername = function (context) {
 
 generateUsername.description = 'generated username';
 module.exports = {
-  body: {
+  body: Joi.object({
     username: Joi.string().default(generateUsername),
     firstname: Joi.string(),
     lastname: Joi.string(),
-    created: Joi.date().default(Date.now, 'time of creation'),
+    created: Joi.date().default(Date.now),
     status: Joi.string().default('registered'),   
     registered: Joi.boolean().default(true),
-    type: Joi.string().when('registered', { is: true, then: Joi.default('registered'), otherwise: Joi.default('unregistered') }),
+    type: Joi.string().when('registered', { is: true, then: 'registered', otherwise: 'unregistered' }),
     values: Joi.array().default(['1'])
-  }
+  })
 };

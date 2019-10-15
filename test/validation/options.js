@@ -1,13 +1,13 @@
 'use strict';
 
-var Joi = require('joi');
+var Joi = require('@hapi/joi');
 
 module.exports = {
   options: {
     status: 422,
     statusText: 'Unprocessable Entity'
   },
-  body: {
+  body: Joi.object({
     option: Joi.string().required()
-  }
+  })
 };

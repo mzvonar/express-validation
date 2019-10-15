@@ -1,9 +1,9 @@
 'use strict';
 
-var Joi = require('joi');
+var Joi = require('@hapi/joi');
 
 module.exports = {
-  params: {
+  params: Joi.object({
     id : Joi.number().integer().required()
-  }
+  })
 };

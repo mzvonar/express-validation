@@ -1,9 +1,9 @@
-var Joi = require('joi');
+var Joi = require('@hapi/joi');
 
 
 module.exports = {
-  body: {
-    numbers: Joi.array().items(Joi.number().valid([1, 2, 3, 4, 5])),
-    validate_numbers: Joi.array().items(Joi.number().valid(Joi.ref('$numbers')))
-  }
+  body: Joi.object({
+    numbers: Joi.array().items(Joi.number().valid(1, 2, 3, 4, 5)),
+    validate_numbers: Joi.array().items(Joi.number().valid(Joi.in('$numbers')))
+  })
 };

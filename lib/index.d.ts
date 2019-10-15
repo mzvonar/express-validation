@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 /// <reference types="node" />
 import { RequestHandler } from "express";
-import * as Joi from "joi";
+import * as Joi from "@hapi/joi";
 interface ValidatorField {
   [key: string]: any;
 }

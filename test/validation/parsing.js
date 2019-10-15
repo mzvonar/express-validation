@@ -1,31 +1,31 @@
-var Joi = require('joi');
+var Joi = require('@hapi/joi');
 
 exports.params = {
-  params: {
+  params: Joi.object({
     id: Joi.number().integer().default(77)
-  }
+  })
 };
 
 exports.query = {
-  query: {
+  query: Joi.object({
     id: Joi.number().integer().default(77)
-  }
+  })
 };
 
 exports.body = {
-  body: {
+  body: Joi.object({
     id: Joi.number().integer().default(77)
-  }
+  })
 };
 
 exports.headers = {
-  headers: {
+  headers: Joi.object({
     id: Joi.number().integer().default(77)
-  }
+  })
 };
 
 exports.cookies = {
-  cookies: {
+  cookies: Joi.object({
     id: Joi.number().integer().default(77)
-  }
+  })
 };
